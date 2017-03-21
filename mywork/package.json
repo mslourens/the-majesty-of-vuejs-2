@@ -1,0 +1,23 @@
+{
+  "name": "the-majesty-of-vuejs-2",
+  "version": "1.0.0",
+  "description": "[![Book Cover](https://s3.amazonaws.com/titlepages.leanpub.com/vuejs2/large?1476162030)](https://leanpub.com/vuejs2)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mslourens/the-majesty-of-vuejs-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mslourens/the-majesty-of-vuejs-2/issues"
+  },
+  "homepage": "https://github.com/mslourens/the-majesty-of-vuejs-2#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "vue": "^2.2.4"
+  }
+}
