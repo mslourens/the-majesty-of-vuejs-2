@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter 4</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1>This is me!</h1>
+      <div class="list-group">
+        <div class="list-group-item" v-for="(value, key, index) in me">
+          {{index}} : {{key}} = {{value}}
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        me: {
+          name: 'Maurits',
+          weight: 68,
+          height: 175,
+          eyeColor: 'blue grey',
+          favoriteFood: 'bread'
+        }
+      }
+    })
+  </script>
+
+</html>

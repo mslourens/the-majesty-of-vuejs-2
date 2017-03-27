@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter 5</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="./node_modules/lodash/lodash.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container" @keyup.delete="reset">
+      <div class="list-group">
+        <div class="list-group-item" v-for="mayor in sorted">
+          <span v-if="mayor.gender == 'm'">Mr. </span>
+          <span v-if="mayor.gender == 'f'">Mrs. </span>
+          {{mayor.name}} {{mayor.votes}}
+          <button @click.prevent="vote($event, mayor)">Vote</button>
+        </div>
+      </div>
+      <h2>Our mayor is <span v-if="elected.gender == 'm'">Mr. </span>
+        <span v-if="elected.gender == 'f'">Mrs. </span>
+        {{elected.name}}
+      </h2>
+    </div>
+  </body>
+  
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        mayors: [
+          {
+            id: 1,
+            name: 'Black',
+            votes: 0,
+            gender: 'm'
+          },
+          {
+            id: 2,
+            name: 'Pink',
+            votes: 0,
+            gender: 'm'
+          },
+          {
+            id: 3,
+            name: 'White',
+            votes: 0,
+            gender: 'f'
+          },
+          {
+            id: 4,
+            name: 'Brown',
+            votes: 0,
+            gender: 'f'
+          }
+        ]
+      },
+      methods: {
+        vote: function(event, mayor) {
+          mayor.votes++;
+        },
+        reset: function() {
+          this.mayors.map(function(mayor) {
+            mayor.votes = 0;
+            return mayor;
+          })
+        }
+      },
+      computed: {
+        elected: function() {
+          return _.maxBy(this.mayors, function(mayor) {
+            return mayor.votes;
+          })
+        },
+        sorted: function() {
+          return _.sortBy(this.mayors, 'id');
+        }
+      }
+    })
+  </script>
+
+</html>
